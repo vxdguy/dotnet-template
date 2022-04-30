@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/src/setver.csproj",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "publish",
+      "command": "${workspaceFolder}/scripts/runpublish.sh",
+      "type": "shell",
+      "args": [],
+      "isTestCommand": true,
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "test",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "test",
+        "${workspaceFolder}/test/setver.test.csproj",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary,LogLevel=Diagnostic"
+      ],
+      "isTestCommand": true,
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "coverage",
+      "command": "${workspaceFolder}/scripts/runcoverage.sh",
+      "type": "shell",
+      "args": [],
+      "isTestCommand": true,
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "watch",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "watch",
+        "run",
+        "--project",
+        "${workspaceFolder}/src/setver.csproj"
+      ],
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}
